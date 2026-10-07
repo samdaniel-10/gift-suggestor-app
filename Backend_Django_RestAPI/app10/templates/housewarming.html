@@ -1,0 +1,625 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+
+    /* =========================================
+       Housewarming Gift Suggestor
+       Enhanced Internal CSS
+       ========================================= */
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+    /* =========================================
+       Main Background
+       ========================================= */
+
+    main {
+        min-height: 90vh;
+
+        position: relative;
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        padding: 50px 20px;
+
+        background:
+            radial-gradient(
+                circle at 10% 15%,
+                rgba(144, 238, 144, 0.30),
+                transparent 30%
+            ),
+            radial-gradient(
+                circle at 90% 15%,
+                rgba(255, 218, 185, 0.40),
+                transparent 30%
+            ),
+            radial-gradient(
+                circle at 80% 90%,
+                rgba(152, 251, 152, 0.25),
+                transparent 35%
+            ),
+            linear-gradient(
+                135deg,
+                #f5fbf4,
+                #fff8ed,
+                #f2f8f3
+            );
+    }
+
+
+    /* =========================================
+       Decorative Background Circles
+       ========================================= */
+
+    main::before {
+        content: "";
+
+        position: absolute;
+
+        width: 310px;
+        height: 310px;
+
+        top: -120px;
+        left: -90px;
+
+        border-radius: 50%;
+
+        background: rgba(34, 197, 94, 0.11);
+
+        filter: blur(5px);
+    }
+
+
+    main::after {
+        content: "";
+
+        position: absolute;
+
+        width: 350px;
+        height: 350px;
+
+        right: -120px;
+        bottom: -150px;
+
+        border-radius: 50%;
+
+        background: rgba(234, 88, 12, 0.10);
+
+        filter: blur(5px);
+    }
+
+
+    /* =========================================
+       Page Heading
+       ========================================= */
+
+    h2 {
+        position: relative;
+        z-index: 2;
+
+        margin: 0 0 10px;
+
+        text-align: center;
+
+        font-size: 30px;
+
+        font-weight: 700;
+
+        color: #31523a;
+
+        letter-spacing: 0.3px;
+    }
+
+
+    /* =========================================
+       Description
+       ========================================= */
+
+    main > div {
+        position: relative;
+        z-index: 2;
+
+        width: 100%;
+        max-width: 650px;
+
+        padding: 0 10px;
+
+        margin-bottom: 25px;
+
+        text-align: center;
+
+        color: #5c665d;
+
+        font-size: 17px;
+
+        font-weight: 500;
+
+        line-height: 1.7;
+    }
+
+
+    /* Decorative line */
+
+    main > div::after {
+        content: "";
+
+        display: block;
+
+        width: 70px;
+        height: 4px;
+
+        margin: 14px auto 0;
+
+        border-radius: 10px;
+
+        background:
+            linear-gradient(
+                90deg,
+                #22c55e,
+                #84cc16,
+                #ea580c
+            );
+    }
+
+
+    /* =========================================
+       Form Card
+       ========================================= */
+
+    form {
+        position: relative;
+        z-index: 2;
+
+        width: 100%;
+        max-width: 650px;
+
+        padding: 38px 42px;
+
+        background: rgba(255, 255, 255, 0.94);
+
+        border: 1px solid rgba(255, 255, 255, 0.85);
+
+        border-radius: 22px;
+
+        box-shadow:
+            0 20px 50px rgba(65, 90, 70, 0.14),
+            0 5px 15px rgba(0, 0, 0, 0.05);
+
+        backdrop-filter: blur(10px);
+    }
+
+
+    /* Top Gradient Border */
+
+    form::before {
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+        left: 12%;
+        right: 12%;
+
+        height: 4px;
+
+        border-radius: 0 0 10px 10px;
+
+        background:
+            linear-gradient(
+                90deg,
+                #22c55e,
+                #84cc16,
+                #ea580c
+            );
+    }
+
+
+    /* =========================================
+       Labels
+       ========================================= */
+
+    label {
+        display: block;
+
+        margin-top: 20px;
+        margin-bottom: 8px;
+
+        color: #39443c;
+
+        font-size: 15px;
+
+        font-weight: 650;
+
+        letter-spacing: 0.2px;
+    }
+
+
+    label:first-of-type {
+        margin-top: 0;
+    }
+
+
+    /* =========================================
+       Dropdowns
+       ========================================= */
+
+    select {
+        appearance: none;
+        -webkit-appearance: none;
+
+        width: 100%;
+
+        padding: 13px 45px 13px 15px;
+
+        border: 1.5px solid #d8e2d8;
+
+        border-radius: 11px;
+
+        background-color: #fbfdfb;
+
+        color: #3f493f;
+
+        font-family: Arial, Helvetica, sans-serif;
+
+        font-size: 15px;
+
+        cursor: pointer;
+
+        outline: none;
+
+        transition:
+            border-color 0.25s ease,
+            box-shadow 0.25s ease,
+            background-color 0.25s ease,
+            transform 0.2s ease;
+
+        /* Custom Arrow */
+
+        background-image:
+            linear-gradient(
+                45deg,
+                transparent 50%,
+                #16a34a 50%
+            ),
+            linear-gradient(
+                135deg,
+                #16a34a 50%,
+                transparent 50%
+            );
+
+        background-position:
+            calc(100% - 19px) 50%,
+            calc(100% - 13px) 50%;
+
+        background-size:
+            6px 6px,
+            6px 6px;
+
+        background-repeat: no-repeat;
+    }
+
+
+    /* Dropdown Hover */
+
+    select:hover {
+        background-color: #ffffff;
+
+        border-color: #86c98f;
+
+        transform: translateY(-1px);
+
+        box-shadow:
+            0 4px 12px rgba(22, 163, 74, 0.09);
+    }
+
+
+    /* Dropdown Focus */
+
+    select:focus {
+        background-color: #ffffff;
+
+        border-color: #16a34a;
+
+        box-shadow:
+            0 0 0 4px rgba(22, 163, 74, 0.11),
+            0 5px 15px rgba(22, 163, 74, 0.08);
+    }
+
+
+    /* Dropdown Options */
+
+    option {
+        padding: 10px;
+
+        background: #ffffff;
+
+        color: #333333;
+    }
+
+
+    /* =========================================
+       Submit Button
+       ========================================= */
+
+    input[type="submit"] {
+        width: 100%;
+
+        margin-top: 32px;
+
+        padding: 14px 20px;
+
+        border: none;
+
+        border-radius: 12px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #16a34a,
+                #65a30d,
+                #ea580c
+            );
+
+        background-size: 200% 200%;
+
+        color: #ffffff;
+
+        font-size: 16px;
+
+        font-weight: 600;
+
+        letter-spacing: 0.2px;
+
+        cursor: pointer;
+
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease,
+            background-position 0.4s ease;
+    }
+
+
+    /* Button Hover */
+
+    input[type="submit"]:hover {
+        transform: translateY(-3px);
+
+        background-position: 100% 50%;
+
+        box-shadow:
+            0 10px 25px rgba(22, 163, 74, 0.25);
+    }
+
+
+    /* Button Active */
+
+    input[type="submit"]:active {
+        transform: translateY(-1px);
+
+        box-shadow:
+            0 5px 12px rgba(22, 163, 74, 0.18);
+    }
+
+
+    /* =========================================
+       Responsive Design
+       ========================================= */
+
+    @media (max-width: 600px) {
+
+        main {
+            padding: 35px 15px;
+        }
+
+        h2 {
+            font-size: 25px;
+        }
+
+        main > div {
+            font-size: 16px;
+        }
+
+        form {
+            padding: 32px 22px;
+
+            border-radius: 18px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        select {
+            padding: 12px 42px 12px 13px;
+
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            font-size: 15px;
+
+            padding: 13px;
+        }
+    }
+
+</style>
+
+
+<main>
+
+    <!-- Page Heading -->
+
+    <h2>
+        🏡 Housewarming Gift Suggestor
+    </h2>
+
+
+    <!-- Description -->
+
+    <div>
+        Enter the details below to get suitable
+        Housewarming gift suggestions.
+    </div>
+
+
+    <!-- Gift Suggestion Form -->
+
+    <form action="housewarmingsuggestionprocess/" method="post">
+
+        {% csrf_token %}
+
+
+        <!-- Budget -->
+
+        <label for="budget">
+            Budget
+        </label>
+
+        <select name="budget" id="budget" required>
+
+            <option value="">Select Budget</option>
+
+            <option value="Below ₹1,000">
+                Below ₹1,000
+            </option>
+
+            <option value="₹1,000 to ₹2,500">
+                ₹1,000 to ₹2,500
+            </option>
+
+            <option value="₹2,500 to ₹5,000">
+                ₹2,500 to ₹5,000
+            </option>
+
+            <option value="₹5,000 to ₹10,000">
+                ₹5,000 to ₹10,000
+            </option>
+
+            <option value="Above ₹10,000">
+                Above ₹10,000
+            </option>
+
+        </select>
+
+
+        <!-- Gift Type -->
+
+        <label for="gift_type">
+            Gift Type
+        </label>
+
+        <select name="gift_type" id="gift_type" required>
+
+            <option value="">Select Gift Type</option>
+
+            <option value="Useful">
+                Useful
+            </option>
+
+            <option value="Personalized">
+                Personalized
+            </option>
+
+            <option value="Traditional">
+                Traditional
+            </option>
+
+            <option value="Decorative">
+                Decorative
+            </option>
+
+            <option value="Others">
+                Others
+            </option>
+
+        </select>
+
+
+        <!-- Category -->
+
+        <label for="category">
+            Category
+        </label>
+
+        <select name="category" id="category" required>
+
+            <option value="">Select Category</option>
+
+            <option value="Home & Kitchen">
+                Home & Kitchen
+            </option>
+
+            <option value="Home Decor">
+                Home Decor
+            </option>
+
+            <option value="Plants & Gardening">
+                Plants & Gardening
+            </option>
+
+            <option value="Appliances & Electronics">
+                Appliances & Electronics
+            </option>
+
+        </select>
+
+
+        <!-- Gift Preferences -->
+
+        <label for="gift_preferences">
+            Gift Preferences
+        </label>
+
+        <select name="gift_preferences" id="gift_preferences" required>
+
+            <option value="">Select Gift Preference</option>
+
+            <option value="Practical">
+                Practical
+            </option>
+
+            <option value="Memorable">
+                Memorable
+            </option>
+
+            <option value="Unique">
+                Unique
+            </option>
+
+            <option value="Luxury">
+                Luxury
+            </option>
+
+            <option value="Traditional">
+                Traditional
+            </option>
+
+            <option value="Others">
+                Others
+            </option>
+
+        </select>
+
+
+        <!-- Submit -->
+
+        <input
+            type="submit"
+            value="🏡  Get Gift Suggestions"
+        >
+
+    </form>
+
+</main>
+
+{% endblock %}
+

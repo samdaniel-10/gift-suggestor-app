@@ -1,0 +1,186 @@
+.wedding-maindiv{
+    min-height: 100vh;
+    width: 100%;
+    background-color: rgb(246, 245, 247);
+     
+}
+
+header{
+    box-sizing: border-box;
+    color: white;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
+    margin-bottom: 30px;
+    padding: 0px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header h1{
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    font-size: 30px;
+    margin: 0px;
+}
+
+
+header div{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+header div a{
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    position: relative;
+    text-decoration: none;
+}
+
+header div a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    transition: width 0.3s ease;
+    background-color: rgb(15, 207, 15);
+}
+
+header div a:hover::after{
+    width: 100%;
+}
+
+.wedding-maindiv main{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(230, 225, 234);
+}
+
+.wedding-maindiv main h1{
+    margin-top: 100px;
+    font-size: 30px;
+    font-weight: 700;
+    color: rgba(225, 11, 47, 0.934);
+}
+
+.wedding-para{
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    font-size: 17px;
+    color: rgb(75, 74, 74);
+    margin: 20px;
+}
+
+.wedding-para::after{
+    content: "";
+    display: block;
+    width: 250px;
+    height: 4px;
+    background-color: rgba(225, 11, 47, 0.934);
+    margin: 12px auto 0;
+    border-radius: 5px;
+}
+
+.wedding-subdiv{
+    width: 42%;
+    height: fit-content;
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    padding: 40px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+    margin-top: 20px;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.15)
+}
+
+.wedding-subdiv label{
+    width: 100%;
+    margin-bottom: 7px;
+    text-align: left;
+    font-weight: 700;
+     
+}
+
+.wedding-subdiv select{
+    font-family: 'poppins', sans-serif;
+    font-size: 14.5px;
+    width: 100%;
+    padding: 14px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+    background-color:  rgb(246, 245, 247);
+    border: 1px solid lightblue;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+.wedding-subdiv select:hover{
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border:1px solid rgb(70, 70, 219);
+}
+
+
+.wedding-subdiv button{
+    width: 100%;
+    padding: 14px;
+    border-radius: 14px;
+    margin: 10px 0px;
+    color: white;
+    font-weight: 700;
+    background-color: rgba(93, 5, 19, 0.582);
+    background-size: 200% 100%;
+    border: transparent;
+    font-family: 'poppins', sans-serif;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.wedding-subdiv button:hover{
+    background-color:  rgba(93, 5, 20, 0.419);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.wedding-subdiv button a{
+    color: white;
+    text-decoration: none;
+}
+
+footer{
+    min-height: 10vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p{
+    color: white;
+    font-size: 16px;
+}
+
+.wedding-subdiv span{
+    color: red;
+}

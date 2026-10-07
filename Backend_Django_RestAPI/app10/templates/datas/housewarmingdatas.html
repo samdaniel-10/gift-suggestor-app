@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br>
+    <br>
+    <h1>housewarming Datas</h1>
+
+    <table border="2" width="100%">
+        <tr>
+            <th>ID</th>
+            <th>budget</th>
+            <th>gift type</th>
+            <th>Category</th>
+            <th>Gift Preferences</th>
+            <th>gift_suggestion</th>
+        </tr>
+        {% for x in userdata1 %}
+         
+        <tr>
+            <td>{{ x.id }}</td>
+            <td>{{ x.budget }}</td>
+            <td>{{ x.gift_type }}</td>
+            <td>{{ x.category }}</td>
+            <td>{{ x.gift_preferences }}</td>
+            <td>{{ x.gift_suggestion }}</td>
+
+
+        </tr>
+        {% endfor %}
+    </table>
+     
+</body>
+</html>

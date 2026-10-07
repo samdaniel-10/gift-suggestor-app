@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .gift-page {
+        min-height: 80vh;
+        padding: 40px 5% 60px;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background-color: #fdfaf5;
+    }
+
+    .breadcrumb {
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 10px;
+    }
+
+    .breadcrumb a {
+        color: #d81b60;
+        text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+        text-decoration: underline;
+    }
+
+    .gift-page h1 {
+        font-size: 28px;
+        color: #1a1a1a;
+        margin-bottom: 6px;
+    }
+
+    .gift-page .subtext {
+        color: #666;
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+
+    .gift-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 22px;
+    }
+
+    .gift-card {
+        background-color: #ffffff;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        text-align: left;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .gift-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Uncomment in your CSS if you add an image field to the model
+    .gift-card img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 12px;
+    }
+    */
+
+    .gift-card h3 {
+        font-size: 16px;
+        color: #1a1a1a;
+        margin-bottom: 6px;
+    }
+
+    .gift-card .price {
+        font-size: 14px;
+        color: #d81b60;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .gift-card p {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.5;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+        color: #777;
+    }
+
+    .empty-state a {
+        display: inline-block;
+        margin-top: 14px;
+        padding: 10px 22px;
+        background-color: #d81b60;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 24px;
+        font-size: 14px;
+    }
+
+    .tips-section {
+        margin-top: 50px;
+        background-color: #fff5f8;
+        border-radius: 14px;
+        padding: 30px 25px;
+    }
+
+    .tips-section h2 {
+        font-size: 20px;
+        color: #1a1a1a;
+        margin-bottom: 14px;
+    }
+
+    .tips-section ul {
+        padding-left: 20px;
+        color: #555;
+        line-height: 1.8;
+        font-size: 14px;
+    }
+
+    .budget-section {
+        margin-top: 40px;
+    }
+
+    .budget-section h2 {
+        font-size: 20px;
+        color: #1a1a1a;
+        margin-bottom: 14px;
+    }
+
+    .budget-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 16px;
+    }
+
+    .budget-card {
+        background-color: #ffffff;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        padding: 16px;
+        text-align: center;
+    }
+
+    .budget-card strong {
+        display: block;
+        font-size: 15px;
+        color: #d81b60;
+        margin-bottom: 4px;
+    }
+
+    .budget-card span {
+        font-size: 13px;
+        color: #666;
+    }
+
+    .related-section {
+        margin-top: 50px;
+    }
+
+    .related-section h2 {
+        font-size: 20px;
+        color: #1a1a1a;
+        margin-bottom: 14px;
+    }
+
+    .related-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .related-links a {
+        padding: 8px 18px;
+        background-color: #ffffff;
+        border: 1px solid #eee;
+        border-radius: 20px;
+        color: #1a1a1a;
+        text-decoration: none;
+        font-size: 14px;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .related-links a:hover {
+        background-color: #d81b60;
+        color: #ffffff;
+    }
+</style>
+
+<div class="gift-page">
+
+    <div class="breadcrumb">
+        <a href="{% url 'homepage' %}">Occasions</a> / Babyshower
+    </div>
+
+    <h1>🍼 Babyshower Gift Suggestions</h1>
+    <p class="subtext">
+        {% if babyshowerdata %}
+            Here are some gift ideas to welcome the new arrival.
+        {% else %}
+            Browse babyshower gift ideas below.
+        {% endif %}
+    </p>
+
+    {% if babyshowerdata %}
+        <div class="gift-grid">
+            {% for x in babyshowerdata %}
+                <div class="gift-card">
+                    <!-- Uncomment if your model has an image field:
+                    <img src="{{ x.image.url }}" alt="{{ x.gift_suggestion }}">
+                    -->
+                    <h3>{{ x.gift_suggestion }}</h3>
+
+                    <!-- Uncomment if your model has a price field:
+                    <p class="price">₹{{ x.price }}</p>
+                    -->
+
+                    <!-- Uncomment if your model has a description field:
+                    <p>{{ x.description }}</p>
+                    -->
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <p>No matching gift found.</p>
+            <a href="{% url 'homepage' %}">Browse other occasions</a>
+        </div>
+    {% endif %}
+
+    <div class="tips-section">
+        <h2>🍼 Tips for Choosing a Babyshower Gift</h2>
+        <ul>
+            <li>Practical essentials like diapers, onesies, and swaddles are always appreciated.</li>
+            <li>Check the parents' registry first, if they have one, to avoid duplicate gifts.</li>
+            <li>Consider gifts that grow with the baby, like a stroller upgrade or convertible crib bedding.</li>
+            <li>A keepsake item — a handprint kit, personalized blanket, or engraved nursery decor — becomes a lasting memory.</li>
+            <li>Don't forget the parents too — a self-care basket or meal-delivery gift card helps them as much as the baby gift.</li>
+        </ul>
+    </div>
+
+    <div class="budget-section">
+        <h2>💰 Shop by Budget</h2>
+        <div class="budget-grid">
+            <div class="budget-card">
+                <strong>Under ₹500</strong>
+                <span>Thoughtful small gifts</span>
+            </div>
+            <div class="budget-card">
+                <strong>₹500 – ₹1500</strong>
+                <span>Mid-range favorites</span>
+            </div>
+            <div class="budget-card">
+                <strong>₹1500 – ₹5000</strong>
+                <span>Premium picks</span>
+            </div>
+            <div class="budget-card">
+                <strong>₹5000+</strong>
+                <span>Luxury gifting</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="related-section">
+        <h2>Looking for a different occasion?</h2>
+        <div class="related-links">
+            <a href="{% url 'birthday' %}">Birthday</a>
+            <a href="{% url 'wedding' %}">Wedding</a>
+            <a href="{% url 'housewarming' %}">Housewarming</a>
+            <a href="{% url 'anniversary' %}">Anniversary</a>
+            <a href="{% url 'farewellretirement' %}">Farewell</a>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

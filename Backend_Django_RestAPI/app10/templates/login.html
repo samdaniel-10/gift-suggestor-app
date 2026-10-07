@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Suggestor - Login</title>
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+</head>
+
+<body>
+
+<div class="login-wrapper">
+    <div class="login-card">
+
+        <div class="icon-row">
+            <span>🎁</span>
+            <span>🎀</span>
+            <span>🎉</span>
+        </div>
+
+        <h1>Gift Suggestor</h1>
+
+        <p class="subtitle">
+            Login to get personalized gift suggestions based on your preferences.
+        </p>
+
+        {% if messages %}
+            {% for message in messages %}
+                <script>
+                    alert("{{ message }}");
+                </script>
+            {% endfor %}
+        {% endif %}
+
+        {% if error %}
+            <p class="error-msg">{{ error }}</p>
+        {% endif %}
+
+        <form action="/login/loginprocess/" method="post" class="login-form">
+
+            {% csrf_token %}
+
+            <label for="username" class="sr-only">Username:</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter Username"
+                required
+                class="form-input"
+            >
+
+            <label for="password" class="sr-only">Password:</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter Password"
+                required
+                class="form-input"
+            >
+
+            <input type="submit" value="Login" class="login-btn">
+
+        </form>
+
+        <div class="link-row">
+            <a href="{% url 'forgotpassword' %}" class="link-item">Forgot Password?</a>
+            <a href="{% url 'registration' %}" class="link-item">Register</a>
+        </div>
+
+        <p class="footer-text">
+            Find the perfect gift for birthdays, weddings, anniversaries,
+            housewarmings, baby showers, farewells and more.
+        </p>
+
+    </div>
+</div>
+
+</body>
+</html>

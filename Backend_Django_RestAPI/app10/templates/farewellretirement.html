@@ -1,0 +1,674 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+
+    /* =========================================
+       Farewell / Retirement Gift Suggestor
+       Page-specific styling
+       Does NOT affect header or footer
+       ========================================= */
+
+    .farewell-page {
+        min-height: 90vh;
+
+        position: relative;
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        padding: 50px 20px;
+
+        background:
+            radial-gradient(
+                circle at 8% 18%,
+                rgba(251, 191, 36, 0.28),
+                transparent 30%
+            ),
+            radial-gradient(
+                circle at 92% 15%,
+                rgba(253, 186, 116, 0.32),
+                transparent 30%
+            ),
+            radial-gradient(
+                circle at 80% 90%,
+                rgba(250, 204, 21, 0.25),
+                transparent 35%
+            ),
+            linear-gradient(
+                135deg,
+                #fffaf0,
+                #fff7e6,
+                #fffdf5
+            );
+    }
+
+
+    /* =========================================
+       Decorative Background Circles
+       ========================================= */
+
+    .farewell-page::before {
+        content: "";
+
+        position: absolute;
+
+        width: 300px;
+        height: 300px;
+
+        top: -120px;
+        left: -90px;
+
+        border-radius: 50%;
+
+        background: rgba(245, 158, 11, 0.13);
+
+        filter: blur(5px);
+    }
+
+
+    .farewell-page::after {
+        content: "";
+
+        position: absolute;
+
+        width: 350px;
+        height: 350px;
+
+        right: -120px;
+        bottom: -150px;
+
+        border-radius: 50%;
+
+        background: rgba(251, 191, 36, 0.13);
+
+        filter: blur(5px);
+    }
+
+
+    /* =========================================
+       Page Title
+       Only affects Farewell page title
+       ========================================= */
+
+    .farewell-page .farewell-title {
+        position: relative;
+        z-index: 2;
+
+        margin: 0 0 10px;
+
+        text-align: center;
+
+        font-size: 30px;
+
+        font-weight: 700;
+
+        color: #c46a05;
+
+        letter-spacing: 0.3px;
+    }
+
+
+    /* =========================================
+       Description
+       ========================================= */
+
+    .farewell-page .farewell-description {
+        position: relative;
+        z-index: 2;
+
+        width: 100%;
+        max-width: 650px;
+
+        padding: 0 10px;
+
+        margin-bottom: 25px;
+
+        text-align: center;
+
+        color: #5b5142;
+
+        font-size: 18px;
+
+        font-weight: 500;
+
+        line-height: 1.7;
+    }
+
+
+    /* Decorative Line */
+
+    .farewell-page .farewell-description::after {
+        content: "";
+
+        display: block;
+
+        width: 70px;
+        height: 4px;
+
+        margin: 14px auto 0;
+
+        border-radius: 10px;
+
+        background:
+            linear-gradient(
+                90deg,
+                #f59e0b,
+                #fbbf24,
+                #d97706
+            );
+    }
+
+
+    /* =========================================
+       Form Card
+       ========================================= */
+
+    .farewell-page .farewell-form {
+        position: relative;
+        z-index: 2;
+
+        width: 100%;
+        max-width: 650px;
+
+        padding: 38px 42px;
+
+        background: rgba(255, 255, 255, 0.94);
+
+        border: 1px solid rgba(255, 255, 255, 0.90);
+
+        border-radius: 22px;
+
+        box-shadow:
+            0 20px 50px rgba(120, 80, 20, 0.14),
+            0 5px 15px rgba(0, 0, 0, 0.05);
+
+        backdrop-filter: blur(10px);
+    }
+
+
+    /* Top Golden Border */
+
+    .farewell-page .farewell-form::before {
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+        left: 12%;
+        right: 12%;
+
+        height: 4px;
+
+        border-radius: 0 0 10px 10px;
+
+        background:
+            linear-gradient(
+                90deg,
+                #f59e0b,
+                #fbbf24,
+                #d97706
+            );
+    }
+
+
+    /* =========================================
+       Labels
+       ========================================= */
+
+    .farewell-page .farewell-form label {
+        display: block;
+
+        margin-top: 20px;
+        margin-bottom: 8px;
+
+        color: #4b4032;
+
+        font-size: 15px;
+
+        font-weight: 650;
+
+        letter-spacing: 0.2px;
+    }
+
+
+    .farewell-page .farewell-form label:first-of-type {
+        margin-top: 0;
+    }
+
+
+    /* =========================================
+       Dropdowns
+       ========================================= */
+
+    .farewell-page .farewell-form select {
+        appearance: none;
+        -webkit-appearance: none;
+
+        width: 100%;
+
+        padding: 13px 45px 13px 15px;
+
+        border: 1.5px solid #e7dcc8;
+
+        border-radius: 11px;
+
+        background-color: #fffdf8;
+
+        color: #4a4035;
+
+        font-family: Arial, Helvetica, sans-serif;
+
+        font-size: 15px;
+
+        cursor: pointer;
+
+        outline: none;
+
+        transition:
+            border-color 0.25s ease,
+            box-shadow 0.25s ease,
+            background-color 0.25s ease,
+            transform 0.2s ease;
+
+        /* Custom Golden Arrow */
+
+        background-image:
+            linear-gradient(
+                45deg,
+                transparent 50%,
+                #d97706 50%
+            ),
+            linear-gradient(
+                135deg,
+                #d97706 50%,
+                transparent 50%
+            );
+
+        background-position:
+            calc(100% - 19px) 50%,
+            calc(100% - 13px) 50%;
+
+        background-size:
+            6px 6px,
+            6px 6px;
+
+        background-repeat: no-repeat;
+    }
+
+
+    /* Dropdown Hover */
+
+    .farewell-page .farewell-form select:hover {
+        background-color: #ffffff;
+
+        border-color: #f0b44d;
+
+        transform: translateY(-1px);
+
+        box-shadow:
+            0 4px 12px rgba(217, 119, 6, 0.10);
+    }
+
+
+    /* Dropdown Focus */
+
+    .farewell-page .farewell-form select:focus {
+        background-color: #ffffff;
+
+        border-color: #d97706;
+
+        box-shadow:
+            0 0 0 4px rgba(217, 119, 6, 0.11),
+            0 5px 15px rgba(217, 119, 6, 0.08);
+    }
+
+
+    /* Dropdown Options */
+
+    .farewell-page .farewell-form option {
+        padding: 10px;
+
+        background: #ffffff;
+
+        color: #333333;
+    }
+
+
+    /* =========================================
+       Submit Button
+       ========================================= */
+
+    .farewell-page .farewell-form button[type="submit"] {
+        width: 100%;
+
+        margin-top: 32px;
+
+        padding: 14px 20px;
+
+        border: none;
+
+        border-radius: 12px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #f59e0b,
+                #fbbf24,
+                #d97706
+            );
+
+        background-size: 200% 200%;
+
+        color: #ffffff;
+
+        font-size: 16px;
+
+        font-weight: 600;
+
+        letter-spacing: 0.2px;
+
+        cursor: pointer;
+
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease,
+            background-position 0.4s ease;
+    }
+
+
+    /* Button Hover */
+
+    .farewell-page .farewell-form button[type="submit"]:hover {
+        transform: translateY(-3px);
+
+        background-position: 100% 50%;
+
+        box-shadow:
+            0 10px 25px rgba(217, 119, 6, 0.28);
+    }
+
+
+    /* Button Active */
+
+    .farewell-page .farewell-form button[type="submit"]:active {
+        transform: translateY(-1px);
+
+        box-shadow:
+            0 5px 12px rgba(217, 119, 6, 0.18);
+    }
+
+
+    /* =========================================
+       Responsive Design
+       ========================================= */
+
+    @media (max-width: 600px) {
+
+        .farewell-page {
+            padding: 35px 15px;
+        }
+
+
+        .farewell-page .farewell-title {
+            font-size: 25px;
+        }
+
+
+        .farewell-page .farewell-description {
+            font-size: 16px;
+        }
+
+
+        .farewell-page .farewell-form {
+            padding: 32px 22px;
+
+            border-radius: 18px;
+        }
+
+
+        .farewell-page .farewell-form label {
+            font-size: 14px;
+        }
+
+
+        .farewell-page .farewell-form select {
+            padding: 12px 42px 12px 13px;
+
+            font-size: 14px;
+        }
+
+
+        .farewell-page .farewell-form button[type="submit"] {
+            font-size: 15px;
+
+            padding: 13px;
+        }
+    }
+
+</style>
+
+
+<!-- =========================================
+     Farewell / Retirement Gift Suggestor
+     ========================================= -->
+
+<main class="farewell-page">
+
+
+    <!-- Page Title -->
+
+    <h1 class="farewell-title">
+        Farewell / Retirement Gift Suggestor
+    </h1>
+
+
+    <!-- Description -->
+
+    <p class="farewell-description">
+        Select your preferences to get a suitable
+        farewell or retirement gift suggestion.
+    </p>
+
+
+    <!-- Form -->
+
+    <form
+        class="farewell-form"
+        action="farewellretirementsuggestionprocess/"
+        method="post"
+    >
+
+        {% csrf_token %}
+
+
+        <!-- Occasion Type -->
+
+        <label for="occasion_type">
+            Occasion Type
+        </label>
+
+        <select
+            name="occasion_type"
+            id="occasion_type"
+            required
+        >
+
+            <option value="">
+                Select Occasion
+            </option>
+
+            <option value="Farewell">
+                Farewell
+            </option>
+
+            <option value="Retirement">
+                Retirement
+            </option>
+
+        </select>
+
+
+        <!-- Budget -->
+
+        <label for="budget">
+            Budget
+        </label>
+
+        <select
+            name="budget"
+            id="budget"
+            required
+        >
+
+            <option value="">
+                Select Budget
+            </option>
+
+            <option value="Below ₹500">
+                Below ₹500
+            </option>
+
+            <option value="₹500 to ₹1,000">
+                ₹500 to ₹1,000
+            </option>
+
+            <option value="₹1,000 to ₹2,500">
+                ₹1,000 to ₹2,500
+            </option>
+
+            <option value="₹2,500 to ₹5,000">
+                ₹2,500 to ₹5,000
+            </option>
+
+            <option value="Above ₹5,000">
+                Above ₹5,000
+            </option>
+
+        </select>
+
+
+        <!-- Gift Type -->
+
+        <label for="gift_type">
+            Gift Type
+        </label>
+
+        <select
+            name="gift_type"
+            id="gift_type"
+            required
+        >
+
+            <option value="">
+                Select Gift Type
+            </option>
+
+            <option value="Useful">
+                Useful
+            </option>
+
+            <option value="Personalized">
+                Personalized
+            </option>
+
+            <option value="Handmade">
+                Handmade
+            </option>
+
+            <option value="Experience">
+                Experience
+            </option>
+
+        </select>
+
+
+        <!-- Category -->
+
+        <label for="category">
+            Category
+        </label>
+
+        <select
+            name="category"
+            id="category"
+            required
+        >
+
+            <option value="">
+                Select Category
+            </option>
+
+            <option value="Personalized Gifts">
+                Personalized Gifts
+            </option>
+
+            <option value="Office & Desk">
+                Office & Desk
+            </option>
+
+            <option value="Home & Decor">
+                Home & Decor
+            </option>
+
+            <option value="Hobbies & Lifestyle">
+                Hobbies & Lifestyle
+            </option>
+
+            <option value="Travel & Experiences">
+                Travel & Experiences
+            </option>
+
+        </select>
+
+
+        <!-- Gift Preference -->
+
+        <label for="gift_preferences">
+            Gift Preference
+        </label>
+
+        <select
+            name="gift_preferences"
+            id="gift_preferences"
+            required
+        >
+
+            <option value="">
+                Select Gift Preference
+            </option>
+
+            <option value="Practical">
+                Practical
+            </option>
+
+            <option value="Emotional">
+                Emotional
+            </option>
+
+            <option value="Memorable">
+                Memorable
+            </option>
+
+            <option value="Creative">
+                Creative
+            </option>
+
+        </select>
+
+
+        <!-- Submit Button -->
+
+        <button type="submit">
+            🎁 &nbsp; Suggest Gift
+        </button>
+
+    </form>
+
+</main>
+
+{% endblock %}

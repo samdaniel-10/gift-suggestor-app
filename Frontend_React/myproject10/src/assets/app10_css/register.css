@@ -1,0 +1,147 @@
+.register-main1{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch; 
+}
+
+.register-sub1{
+    width: 53%;
+    min-height: 100vh;
+    background: linear-gradient(160deg, #2b0a3d 0%, #4a1367 45%, #7a1f9c 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-sub2{
+    width: 50%;
+    min-height: 100vh;
+    background-color: rgb(233, 233, 216);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-sub1 div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 80%;
+}
+
+.register-sub1 h1{
+    font-size: 40px;
+    font-weight: 800;
+    color: white;
+    width: 100%;
+    text-align: left;
+}
+
+.register-p{
+    width: 100%;
+    color: lightblue;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.register-row{
+    width: 100%;
+    font-size: large;
+    color: white;
+    font-weight: 500;
+}
+
+.register-sub22{
+    background-color: white;
+    width: 59%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px;
+    margin:30px 0px;
+     
+}
+
+.register-sub22 h1{
+    font-size: 30px;
+    width: 100%;
+    font-weight: 800;
+    text-align: center;
+     
+}
+
+.register-sub22 p{
+    width: 100%;
+    color: rgb(7, 7, 7);
+    font-size: 15px;
+    text-align: center;
+}
+
+.register-sub22 input{
+    box-sizing: border-box;
+    border: 1px rgb(209, 183, 183) solid;
+    outline: 3px solid transparent;
+    width: 100%;
+    padding: 10px 16px;
+    margin: 10px;
+    border-radius: 10px;
+    transition: outline 0.2s ease-in, border 0.2s ease-in;
+}
+
+.register-sub22 input:focus{
+    outline: 3px solid rgb(194, 186, 186);
+    border: 1px black solid;
+}
+
+.register-sub22 input::placeholder{
+    font-size: 17px;
+    font-family: 'poppins', sans-serif;
+    font-size: 15px;
+}
+
+.register-sub22 input.submit{
+    color: white;
+    background-color: rgb(47, 144, 47);
+    outline: none;
+    border: none;
+    font-size: 17px;
+    transition: background-color 0.1s ease-in;
+}
+
+.register-sub22 input.submit:hover{
+    background-color: rgb(26, 101, 26); ;
+}
+
+.register-sub22 p.login{
+    width: 100%;
+    color: grey;
+    font-size: 15px;
+    margin:15px 0;
+    text-align: center;
+    display: inline-block;
+}
+
+.register-login a{
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register-login a:hover{
+    text-decoration: underline;
+}
+
+.register-sub22 .register-error{
+    width: 100%;
+    padding: 10px 16px;
+    margin: 10px;
+    color: red;
+    background-color: rgb(212, 210, 210);
+    border-radius: 10px;
+    
+}

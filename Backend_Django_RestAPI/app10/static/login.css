@@ -1,0 +1,186 @@
+/* ---------- Reset ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+
+    /* Background image ------------------------------------------------
+       Replace the url() below with your own gift-themed photo, e.g.:
+       background-image: url("{% static 'images/gift-bg.jpg' %}");
+       Until then, a warm gift-shop style gradient is used as a fallback. */
+    background-image:
+    linear-gradient(rgba(40, 20, 50, 0.35), rgba(40, 20, 50, 0.35)),
+    linear-gradient(135deg, #f8bbd0 0%, #ce93d8 35%, #b39ddb 70%, #90caf9 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* ---------- Wrapper / Card ---------- */
+.login-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 460px;
+    background: rgba(30, 15, 35, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 45px 40px;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- Icon Row ---------- */
+.icon-row {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+/* ---------- Headings ---------- */
+.login-card h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 15px;
+    color: #e6d9ea;
+    max-width: 360px;
+    margin: 0 auto 30px;
+    line-height: 1.5;
+}
+
+/* ---------- Form ---------- */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    outline: none;
+    transition: box-shadow 0.2s ease;
+}
+
+.form-input::placeholder {
+    color: #8a8a8a;
+}
+
+.form-input:focus {
+    box-shadow: 0 0 0 3px rgba(216, 27, 96, 0.45);
+}
+
+/* ---------- Login Button ---------- */
+.login-btn {
+    margin-top: 4px;
+    padding: 14px;
+    background-color: #f57c00;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.login-btn:hover {
+    background-color: #d96f10;
+}
+
+/* ---------- Error / Alert ---------- */
+.error-msg {
+    background-color: rgba(255, 82, 82, 0.15);
+    color: #ffb4b4;
+    border: 1px solid rgba(255, 82, 82, 0.4);
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+/* ---------- Links Row ---------- */
+.link-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.link-item {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.link-item:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Footer Text ---------- */
+.footer-text {
+    font-size: 13px;
+    color: #d8c8dc;
+    line-height: 1.5;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 500px) {
+    .login-card {
+        padding: 35px 24px;
+    }
+
+    .login-card h1 {
+        font-size: 26px;
+    }
+
+    .link-row {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}

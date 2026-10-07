@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'registration.css' %}">
+    <!-- If you're not using {% load static %}, replace the href above with your actual CSS path, e.g. "style.css" -->
+</head>
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- LEFT PANEL -->
+        <div class="left-panel">
+            <div class="brand">
+                <span class="brand-icon">🎁</span>
+                <h1 class="brand-title">Gift Suggestor</h1>
+            </div>
+            <p class="left-subtext">
+                Create your account and discover the perfect gift for every person and every occasion.
+            </p>
+            <ul class="feature-list">
+                <li>🎯 Personalized Gift Ideas</li>
+                <li>🎂 Occasion-Based Suggestions</li>
+                <li>💰 Gifts For Every Budget</li>
+                <li>❤️ Curated By Interests</li>
+            </ul>
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div class="right-panel">
+            <div class="card">
+                <h2 class="card-title">Create Account</h2>
+                <p class="card-subtitle">Join Gift Suggestor today</p>
+
+                {% if error %}
+                    <p class="error-msg">{{ error }}</p>
+                {% endif %}
+
+                <form action="{% url 'registrationprocess' %}" method="post" class="register-form">
+                    {% csrf_token %}
+                    <input type="text" placeholder="Full Name" name="fullname" required class="form-input">
+                    <input type="email" placeholder="Email Address" name="email" required class="form-input">
+                    <input type="number" placeholder="Mobile Number" name="mobile_no" required class="form-input">
+                    <input type="text" placeholder="Username" name="username" required class="form-input">
+                    <input type="password" placeholder="Password" name="password" required class="form-input">
+                    <input type="password" placeholder="Confirm Password" name="confirm_password" required class="form-input">
+                    <input type="Submit" value="Register" class="submit-btn">
+                    <p class="login-text">
+                        Already have an account? <a href="{% url 'login' %}" class="login-link">Login</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

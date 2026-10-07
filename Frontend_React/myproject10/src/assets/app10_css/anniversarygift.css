@@ -1,0 +1,208 @@
+.anniversarygift-maindiv{
+    min-height: 100vh;
+    width: 100%;
+    background-color: white;
+}
+
+header{
+    box-sizing: border-box;
+    color: white;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
+    margin-bottom: 30px;
+    padding: 0px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header h1{
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    font-size: 30px;
+    margin: 0px;
+}
+
+
+header div{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+header div a{
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    position: relative;
+    text-decoration: none;
+}
+
+header div a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    transition: width 0.3s ease;
+    background-color: rgb(15, 207, 15);
+}
+
+header div a:hover::after{
+    width: 100%;
+}
+
+.anniversarygift-content{
+    margin-top: 63px;
+    min-height: 100vh;
+    min-width: 100%;
+    background-color: rgb(235, 252, 246);
+    padding: 40px;
+    display: flex;
+    margin-left: -30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.anniversarygift-content span{
+    font-size: 14.5px;
+    color: grey;
+    line-height: 2.5;
+}
+
+.anniversarygift-content span a{
+    color: rgb(83, 83, 83);
+    text-decoration: none;
+}
+
+.anniversarygift-content span a:hover{
+    text-decoration: underline;
+}
+
+.anniversarygift-content h3{
+    font-weight: 700;
+}
+
+.anniversarygift-content p{
+    color: rgba(18, 18, 18, 0.663);
+}
+
+.anniversarygift-subdiv{
+    display: flex;
+    padding: 20px 0px;
+     
+}
+
+.anniversarygift-subdiv2{
+    margin-top: 30px;
+    padding: 20px 20px;
+}
+
+.anniversarygift-subdiv2 h4{
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 11px;
+}
+
+
+.anniversarygift-subdiv2 li{
+    color: rgba(18, 18, 18, 0.7);
+    font-size: 14.5px;
+    line-height: 1.7;
+}
+
+.anniversarygift-subdiv2 li::marker{
+    font-size: small;
+}
+
+.anniversarygift-subdiv3{
+    margin-top: 30px;
+}
+
+.anniversarygift-subdiv3 h4{
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.anniversarygift-subdiv3 section{
+    display: flex;
+    justify-content: space-between;
+}
+
+.anniversarygift-subdiv3 section div{
+    height: 80px;
+    width: 300px;
+    background-color: white;
+    margin-right: 20px;
+    border-radius: 7.5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.anniversarygift-subdiv3 section div p{
+    margin: 0;
+    line-height: 2;
+    font-size: 14.5px;
+}
+
+.anniversarygift-subdiv3 section div p.bold{
+    font-weight: 700;
+}
+
+.anniversarygift-subdiv3 section div p.non-bold{
+    font-size:13px;
+}
+
+.anniversarygift-subdiv4{
+    margin-top: 50px;
+}
+
+.anniversarygift-subdiv4 h4{
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 30px;
+
+}
+
+.anniversarygift-subdiv4 a{
+    color: black;
+    text-decoration: none;
+    background-color: white;
+    padding: 7px 14px;
+    margin-right: 20px;
+    border-radius: 25px;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.anniversarygift-subdiv4 a:hover{
+    color: white;
+    background-color: rgba(0, 128, 0, 0.537);
+}
+
+footer{
+    min-height: 10vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p{
+    color: white;
+    font-size: 16px;
+}

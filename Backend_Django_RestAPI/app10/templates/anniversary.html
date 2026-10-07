@@ -1,0 +1,649 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+
+    /* =========================================
+       Anniversary Gift Suggestor
+       Page-specific styling
+       Does NOT affect header or footer
+       ========================================= */
+
+    .anniversary-page {
+        min-height: 90vh;
+
+        position: relative;
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        padding: 50px 20px;
+
+        background:
+            radial-gradient(
+                circle at 8% 18%,
+                rgba(255, 182, 193, 0.40),
+                transparent 30%
+            ),
+            radial-gradient(
+                circle at 92% 15%,
+                rgba(221, 160, 221, 0.38),
+                transparent 30%
+            ),
+            radial-gradient(
+                circle at 80% 90%,
+                rgba(255, 218, 185, 0.40),
+                transparent 35%
+            ),
+            linear-gradient(
+                135deg,
+                #fff4f7,
+                #f9f1ff,
+                #fff9f2
+            );
+    }
+
+
+    /* =========================================
+       Decorative Background Circles
+       ========================================= */
+
+    .anniversary-page::before {
+        content: "";
+
+        position: absolute;
+
+        width: 300px;
+        height: 300px;
+
+        top: -120px;
+        left: -90px;
+
+        border-radius: 50%;
+
+        background: rgba(236, 72, 153, 0.12);
+
+        filter: blur(5px);
+    }
+
+
+    .anniversary-page::after {
+        content: "";
+
+        position: absolute;
+
+        width: 350px;
+        height: 350px;
+
+        right: -120px;
+        bottom: -150px;
+
+        border-radius: 50%;
+
+        background: rgba(168, 85, 247, 0.12);
+
+        filter: blur(5px);
+    }
+
+
+    /* =========================================
+       Page Title
+       Only affects Anniversary title
+       ========================================= */
+
+    .anniversary-page .anniversary-title {
+        position: relative;
+        z-index: 2;
+
+        margin: 0 0 10px;
+
+        text-align: center;
+
+        font-size: 30px;
+
+        font-weight: 700;
+
+        color: #a8326d;
+
+        letter-spacing: 0.3px;
+    }
+
+
+    /* =========================================
+       Description
+       ========================================= */
+
+    .anniversary-page .anniversary-description {
+        position: relative;
+        z-index: 2;
+
+        width: 100%;
+        max-width: 650px;
+
+        padding: 0 10px;
+
+        margin-bottom: 25px;
+
+        text-align: center;
+
+        color: #574455;
+
+        font-size: 18px;
+
+        font-weight: 500;
+
+        line-height: 1.7;
+    }
+
+
+    /* Decorative Line */
+
+    .anniversary-page .anniversary-description::after {
+        content: "";
+
+        display: block;
+
+        width: 70px;
+        height: 4px;
+
+        margin: 14px auto 0;
+
+        border-radius: 10px;
+
+        background:
+            linear-gradient(
+                90deg,
+                #ec4899,
+                #a855f7,
+                #f59e0b
+            );
+    }
+
+
+    /* =========================================
+       Form Card
+       ========================================= */
+
+    .anniversary-page .anniversary-form {
+        position: relative;
+        z-index: 2;
+
+        width: 100%;
+        max-width: 650px;
+
+        padding: 38px 42px;
+
+        background: rgba(255, 255, 255, 0.94);
+
+        border: 1px solid rgba(255, 255, 255, 0.85);
+
+        border-radius: 22px;
+
+        box-shadow:
+            0 20px 50px rgba(100, 60, 100, 0.15),
+            0 5px 15px rgba(0, 0, 0, 0.05);
+
+        backdrop-filter: blur(10px);
+    }
+
+
+    /* Top Gradient Border */
+
+    .anniversary-page .anniversary-form::before {
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+        left: 12%;
+        right: 12%;
+
+        height: 4px;
+
+        border-radius: 0 0 10px 10px;
+
+        background:
+            linear-gradient(
+                90deg,
+                #ec4899,
+                #a855f7,
+                #f59e0b
+            );
+    }
+
+
+    /* =========================================
+       Labels
+       ========================================= */
+
+    .anniversary-page .anniversary-form label {
+        display: block;
+
+        margin-top: 20px;
+        margin-bottom: 8px;
+
+        color: #403542;
+
+        font-size: 15px;
+
+        font-weight: 650;
+
+        letter-spacing: 0.2px;
+    }
+
+
+    .anniversary-page .anniversary-form label:first-of-type {
+        margin-top: 0;
+    }
+
+
+    /* =========================================
+       Dropdowns
+       ========================================= */
+
+    .anniversary-page .anniversary-form select {
+        appearance: none;
+        -webkit-appearance: none;
+
+        width: 100%;
+
+        padding: 13px 45px 13px 15px;
+
+        border: 1.5px solid #e2d6df;
+
+        border-radius: 11px;
+
+        background-color: #fdfafd;
+
+        color: #443b46;
+
+        font-family: Arial, Helvetica, sans-serif;
+
+        font-size: 15px;
+
+        cursor: pointer;
+
+        outline: none;
+
+        transition:
+            border-color 0.25s ease,
+            box-shadow 0.25s ease,
+            background-color 0.25s ease,
+            transform 0.2s ease;
+
+        /* Custom Dropdown Arrow */
+
+        background-image:
+            linear-gradient(
+                45deg,
+                transparent 50%,
+                #c02675 50%
+            ),
+            linear-gradient(
+                135deg,
+                #c02675 50%,
+                transparent 50%
+            );
+
+        background-position:
+            calc(100% - 19px) 50%,
+            calc(100% - 13px) 50%;
+
+        background-size:
+            6px 6px,
+            6px 6px;
+
+        background-repeat: no-repeat;
+    }
+
+
+    /* Dropdown Hover */
+
+    .anniversary-page .anniversary-form select:hover {
+        background-color: #ffffff;
+
+        border-color: #e08ab5;
+
+        transform: translateY(-1px);
+
+        box-shadow:
+            0 4px 12px rgba(192, 38, 117, 0.10);
+    }
+
+
+    /* Dropdown Focus */
+
+    .anniversary-page .anniversary-form select:focus {
+        background-color: #ffffff;
+
+        border-color: #c02675;
+
+        box-shadow:
+            0 0 0 4px rgba(192, 38, 117, 0.11),
+            0 5px 15px rgba(192, 38, 117, 0.08);
+    }
+
+
+    /* Dropdown Options */
+
+    .anniversary-page .anniversary-form option {
+        padding: 10px;
+
+        background: #ffffff;
+
+        color: #333333;
+    }
+
+
+    /* =========================================
+       Submit Button
+       ========================================= */
+
+    .anniversary-page .anniversary-form input[type="submit"] {
+        width: 100%;
+
+        margin-top: 32px;
+
+        padding: 14px 20px;
+
+        border: none;
+
+        border-radius: 12px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #ec4899,
+                #a855f7,
+                #d97706
+            );
+
+        background-size: 200% 200%;
+
+        color: #ffffff;
+
+        font-size: 16px;
+
+        font-weight: 600;
+
+        letter-spacing: 0.2px;
+
+        cursor: pointer;
+
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease,
+            background-position 0.4s ease;
+    }
+
+
+    /* Button Hover */
+
+    .anniversary-page .anniversary-form input[type="submit"]:hover {
+        transform: translateY(-3px);
+
+        background-position: 100% 50%;
+
+        box-shadow:
+            0 10px 25px rgba(192, 38, 117, 0.28);
+    }
+
+
+    /* Button Active */
+
+    .anniversary-page .anniversary-form input[type="submit"]:active {
+        transform: translateY(-1px);
+
+        box-shadow:
+            0 5px 12px rgba(192, 38, 117, 0.18);
+    }
+
+
+    /* =========================================
+       Responsive Design
+       ========================================= */
+
+    @media (max-width: 600px) {
+
+        .anniversary-page {
+            padding: 35px 15px;
+        }
+
+
+        .anniversary-page .anniversary-title {
+            font-size: 25px;
+        }
+
+
+        .anniversary-page .anniversary-description {
+            font-size: 16px;
+        }
+
+
+        .anniversary-page .anniversary-form {
+            padding: 32px 22px;
+
+            border-radius: 18px;
+        }
+
+
+        .anniversary-page .anniversary-form label {
+            font-size: 14px;
+        }
+
+
+        .anniversary-page .anniversary-form select {
+            padding: 12px 42px 12px 13px;
+
+            font-size: 14px;
+        }
+
+
+        .anniversary-page .anniversary-form input[type="submit"] {
+            font-size: 15px;
+
+            padding: 13px;
+        }
+    }
+
+</style>
+
+
+<!-- =========================================
+     Anniversary Gift Suggestor Page
+     ========================================= -->
+
+<main class="anniversary-page">
+
+
+    <!-- Page Title -->
+
+    <h2 class="anniversary-title">
+      💐  Anniversary Gift Suggestor
+    </h2>
+
+
+    <!-- Description -->
+
+    <div class="anniversary-description">
+
+        Enter the details below to get suitable
+        Anniversary gift suggestions.
+
+    </div>
+
+
+    <!-- Anniversary Form -->
+
+    <form
+        class="anniversary-form"
+        action="{% url 'anniversarysuggestionprocess' %}"
+        method="post"
+    >
+
+        {% csrf_token %}
+
+
+        <!-- Budget -->
+
+        <label for="budget">
+            Budget
+        </label>
+
+        <select name="budget" id="budget" required>
+
+            <option value="">
+                Select Budget
+            </option>
+
+            <option value="Below ₹1,000">
+                Below ₹1,000
+            </option>
+
+            <option value="₹1,000 to ₹2,500">
+                ₹1,000 to ₹2,500
+            </option>
+
+            <option value="₹2,500 to ₹5,000">
+                ₹2,500 to ₹5,000
+            </option>
+
+            <option value="₹5,000 to ₹10,000">
+                ₹5,000 to ₹10,000
+            </option>
+
+            <option value="Above ₹10,000">
+                Above ₹10,000
+            </option>
+
+        </select>
+
+
+        <!-- Gift Type -->
+
+        <label for="gift_type">
+            Gift Type
+        </label>
+
+        <select name="gift_type" id="gift_type" required>
+
+            <option value="">
+                Select Gift Type
+            </option>
+
+            <option value="Romantic">
+                Romantic
+            </option>
+
+            <option value="Personalized">
+                Personalized
+            </option>
+
+            <option value="Useful">
+                Useful
+            </option>
+
+            <option value="Traditional">
+                Traditional
+            </option>
+
+            <option value="Decorative">
+                Decorative
+            </option>
+
+        </select>
+
+
+        <!-- Gift Preferences -->
+
+        <label for="gift_preferences">
+            Gift Preferences
+        </label>
+
+        <select
+            name="gift_preferences"
+            id="gift_preferences"
+            required
+        >
+
+            <option value="">
+                Select Gift Preferences
+            </option>
+
+            <option value="Romantic">
+                Romantic
+            </option>
+
+            <option value="Memorable">
+                Memorable
+            </option>
+
+            <option value="Unique">
+                Unique
+            </option>
+
+            <option value="Luxury">
+                Luxury
+            </option>
+
+            <option value="Practical">
+                Practical
+            </option>
+
+            <option value="Traditional">
+                Traditional
+            </option>
+
+        </select>
+
+
+        <!-- Category -->
+
+        <label for="category">
+            Category
+        </label>
+
+        <select name="category" id="category" required>
+
+            <option value="">Select Category</option>
+
+            <option value="Jewellery & Accessories">
+                Jewellery & Accessories
+            </option>
+
+            <option value="Personalized Gifts">
+                Personalized Gifts
+            </option>
+
+            <option value="Home & Decor">
+                Home & Decor
+            </option>
+
+            <option value="Flowers & Plants">
+                Flowers & Plants
+            </option>
+
+            <option value="Gadgets & Electronics">
+                Gadgets & Electronics
+            </option>
+
+        </select>
+
+
+        <!-- Submit Button -->
+
+        <input
+            type="submit"
+            value="💐  Get Gift Suggestions"
+        >
+
+    </form>
+
+</main>
+
+{% endblock %}
+
