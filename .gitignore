@@ -10,6 +10,8 @@ env/
 myworld10/
 
 # Django
+*.sqlite3
+staticfiles/
 
 # Environment variables
 .env
@@ -25,3 +27,6 @@ build/
 # OS
 .DS_Store
 Thumbs.db
+
+# Local database backup
+database_backup/
