@@ -28,7 +28,7 @@ const Babyshower = () => {
     const babyshower_handlesubmit = (event) => {
         event.preventDefault();
         getGiftSuggestions(
-            'http://127.0.0.1:8000/babyshower_1/',
+            'https://gift-suggestor-backend.onrender.com/babyshower_1/',
             babyshowerdata,
             "/babyshowergift"
         );

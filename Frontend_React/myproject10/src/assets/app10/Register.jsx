@@ -36,7 +36,7 @@ const Register = () => {
             return;
         }
         
-        fetch("http://127.0.0.1:8000/register_1/",{
+        fetch("https://gift-suggestor-backend.onrender.com/register_1/",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -29,7 +29,7 @@ const Wedding = () => {
     const wedding_handlesubmit = (event) => {
         event.preventDefault();
         getGiftSuggestions(
-            'http://127.0.0.1:8000/wedding_1/',
+            'https://gift-suggestor-backend.onrender.com/wedding_1/',
             weddingdata,
             "/weddinggift"
         );

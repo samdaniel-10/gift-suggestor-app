@@ -29,7 +29,7 @@ const Housewarming = () => {
     const housewarming_handlesubmit = (event) => {
         event.preventDefault();
         getGiftSuggestions(
-            'http://127.0.0.1:8000/housewarming_1/',
+            'https://gift-suggestor-backend.onrender.com/housewarming_1/',
             housewarmingdata,
             "/housewarminggift"
         );

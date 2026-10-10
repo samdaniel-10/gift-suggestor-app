@@ -30,7 +30,7 @@ const FarewellRetirement = () => {
     const farewellretirement_handlesubmit = (event) => {
         event.preventDefault();
         getGiftSuggestions(
-            'http://127.0.0.1:8000/farewellretirement_1/',
+            'https://gift-suggestor-backend.onrender.com/farewellretirement_1/',
             farewellretirementdata,
             "/farewellretirementgift"
         );

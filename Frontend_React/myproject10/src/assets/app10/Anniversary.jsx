@@ -28,7 +28,7 @@ const Anniversary = () => {
     const anniversary_handlesubmit = (event) => {
         event.preventDefault();
         getGiftSuggestions(
-            'http://127.0.0.1:8000/anniversary_1/',
+            'https://gift-suggestor-backend.onrender.com/anniversary_1/',
             anniversarydata,
             "/anniversarygift"
         );
