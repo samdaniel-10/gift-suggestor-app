@@ -1,70 +1,98 @@
-.anniversary-maindiv{
+.anniversary-maindiv {
     min-height: 100vh;
     width: 100%;
     background-color: rgb(246, 245, 247);
-     
+
 }
 
-header{
-    box-sizing: border-box;
-    color: white;
-    background-color: black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 10vh;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
-    margin-bottom: 30px;
-    padding: 0px 40px;
-    position: fixed;
-    top: 0;
-    left: 0;
+/* navbar  */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
     width: 100%;
-    z-index: 1000;
 }
 
-header h1{
-    font-weight: 700;
+.custom-navbar {
+    width: 100%;
+    background-color: #101214;
+    padding: 12px 20px;
+}
+
+.custom-navbar .navbar-brand {
     color: white;
-    text-align: center;
+    font-weight: bold;
+}
+
+.custom-navbar .navbar-nav {
+    gap: 30px;
+    --bs-nav-link-padding-x: 0;
+    --bs-navbar-nav-link-padding-x: 0;
+}
+
+.custom-navbar .nav-link {
     position: relative;
     display: inline-block;
-    font-size: 30px;
-    margin: 0px;
-}
-
-
-header div{
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-}
-
-header div a{
-    color: white;
+    width: fit-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #d0d0d0;
     text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    position: relative;
-    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-header div a::after{
+.custom-navbar .nav-link::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -5px;
+    bottom: 4px;
     width: 0;
     height: 2px;
-    transition: width 0.3s ease;
     background-color: rgb(15, 207, 15);
+    transition: width 0.3s ease;
 }
 
-header div a:hover::after{
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+    color: white;
+}
+
+.custom-navbar .nav-link:hover::after,
+.custom-navbar .nav-link.active::after {
     width: 100%;
 }
 
-.anniversary-maindiv main{
+
+.custom-navbar .navbar-toggler {
+    border-color: white;
+}
+
+.custom-navbar .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+.navbar-nav {
+    gap: 25px;
+}
+
+.custom-navbar {
+    width: 100%;
+    height: auto;
+    background-color: #101214;
+    padding: 12px 20px;
+    box-sizing: border-box;
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .navbar-brand:hover,
+.custom-navbar .navbar-brand:focus {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.anniversary-maindiv main {
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -74,14 +102,14 @@ header div a:hover::after{
     background-color: rgb(230, 225, 234);
 }
 
-.anniversary-maindiv main h1{
+.anniversary-maindiv main h1 {
     margin-top: 100px;
     font-size: 30px;
     font-weight: 700;
     color: rgba(225, 11, 47, 0.934);
 }
 
-.anniversary-para{
+.anniversary-para {
     text-align: center;
     position: relative;
     display: inline-block;
@@ -90,7 +118,7 @@ header div a:hover::after{
     margin: 20px;
 }
 
-.anniversary-para::after{
+.anniversary-para::after {
     content: "";
     display: block;
     width: 250px;
@@ -100,7 +128,7 @@ header div a:hover::after{
     border-radius: 5px;
 }
 
-.anniversary-subdiv{
+.anniversary-subdiv {
     width: 42%;
     height: fit-content;
     position: relative;
@@ -116,35 +144,35 @@ header div a:hover::after{
     box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.15)
 }
 
-.anniversary-subdiv label{
+.anniversary-subdiv label {
     width: 100%;
     margin-bottom: 7px;
     text-align: left;
     font-weight: 700;
-     
+
 }
 
-.anniversary-subdiv select{
+.anniversary-subdiv select {
     font-family: 'poppins', sans-serif;
     font-size: 14.5px;
     width: 100%;
     padding: 14px;
     border-radius: 14px;
     margin-bottom: 25px;
-    background-color:  rgb(246, 245, 247);
+    background-color: rgb(246, 245, 247);
     border: 1px solid lightblue;
     box-sizing: border-box;
     transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
 }
 
-.anniversary-subdiv select:hover{
+.anniversary-subdiv select:hover {
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-    border:1px solid rgb(70, 70, 219);
+    border: 1px solid rgb(70, 70, 219);
 }
 
 
-.anniversary-subdiv button{
+.anniversary-subdiv button {
     width: 100%;
     padding: 14px;
     border-radius: 14px;
@@ -158,17 +186,17 @@ header div a:hover::after{
     transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.anniversary-subdiv button:hover{
-    background-color:  rgba(93, 5, 20, 0.419);
+.anniversary-subdiv button:hover {
+    background-color: rgba(93, 5, 20, 0.419);
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.35);
 }
 
-.anniversary-subdiv button a{
+.anniversary-subdiv button a {
     color: white;
     text-decoration: none;
 }
 
-footer{
+footer {
     min-height: 10vh;
     background-color: black;
     display: flex;
@@ -176,11 +204,183 @@ footer{
     align-items: center;
 }
 
-footer p{
+footer p {
     color: white;
     font-size: 16px;
 }
 
-.anniversary-subdiv span{
+.anniversary-subdiv span {
     color: red;
+}
+
+
+
+
+@media (max-width: 992px) {
+
+    .custom-navbar {
+        padding: 12px 16px;
+    }
+
+    .custom-navbar .navbar-nav {
+        gap: 18px;
+    }
+
+    .anniversary-maindiv main h1 {
+        font-size: 28px;
+        margin-top: 70px;
+        text-align: center;
+    }
+
+    .anniversary-para {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+
+    .anniversary-subdiv {
+        width: 65%;
+        padding: 35px 30px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .custom-navbar {
+        padding: 10px 15px;
+    }
+
+    .custom-navbar .navbar-nav {
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .custom-navbar .nav-link {
+        display: block;
+        padding: 10px 0;
+    }
+
+    .anniversary-maindiv main {
+        min-height: auto;
+        padding: 30px 0;
+    }
+
+    .anniversary-maindiv main h1 {
+        font-size: 25px;
+        margin-top: 35px;
+        padding: 0 15px;
+    }
+
+    .anniversary-para {
+        font-size: 15px;
+        margin: 15px 10px;
+        line-height: 1.6;
+    }
+
+    .anniversary-para::after {
+        width: 200px;
+        max-width: 80%;
+    }
+
+    .anniversary-subdiv {
+        width: 80%;
+        padding: 30px 25px;
+        margin-top: 20px;
+        margin-bottom: 35px;
+        box-sizing: border-box;
+    }
+
+    .anniversary-subdiv select,
+    .anniversary-subdiv button {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    footer {
+        min-height: 70px;
+        padding: 15px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    footer p {
+        font-size: 14px;
+        margin: 0;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .custom-navbar {
+        padding: 10px 12px;
+    }
+
+    .custom-navbar .navbar-brand {
+        font-size: 18px;
+    }
+
+    .anniversary-maindiv main h1 {
+        font-size: 22px;
+        margin-top: 25px;
+        line-height: 1.4;
+    }
+
+    .anniversary-para {
+        font-size: 14px;
+        margin: 12px 15px;
+    }
+
+    .anniversary-para::after {
+        width: 160px;
+        height: 3px;
+        margin-top: 10px;
+    }
+
+    .anniversary-subdiv {
+        width: 92%;
+        padding: 25px 18px;
+        border-radius: 12px;
+    }
+
+    .anniversary-subdiv label {
+        font-size: 14px;
+    }
+
+    .anniversary-subdiv select {
+        font-size: 13px;
+        padding: 11px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+    .anniversary-subdiv button {
+        font-size: 14px;
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    footer p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
+
+
+@media (max-width: 320px) {
+
+    .anniversary-maindiv main h1 {
+        font-size: 19px;
+    }
+
+    .anniversary-subdiv {
+        width: 95%;
+        padding: 20px 12px;
+    }
+
+    .anniversary-subdiv select,
+    .anniversary-subdiv button {
+        font-size: 12px;
+        padding: 10px;
+    }
 }

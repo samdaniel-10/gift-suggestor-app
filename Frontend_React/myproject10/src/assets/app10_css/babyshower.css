@@ -5,64 +5,93 @@
      
 }
 
-header{
-    box-sizing: border-box;
-    color: white;
-    background-color: black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 10vh;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
-    margin-bottom: 30px;
-    padding: 0px 40px;
-    position: fixed;
-    top: 0;
-    left: 0;
+/* navbar  */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
     width: 100%;
-    z-index: 1000;
 }
 
-header h1{
-    font-weight: 700;
+.custom-navbar {
+    width: 100%;
+    background-color: #101214;
+    padding: 12px 20px;
+}
+
+.custom-navbar .navbar-brand {
     color: white;
-    text-align: center;
+    font-weight: bold;
+}
+
+.custom-navbar .navbar-nav {
+    gap: 30px;
+    --bs-nav-link-padding-x: 0;
+    --bs-navbar-nav-link-padding-x: 0;
+}
+
+.custom-navbar .nav-link {
     position: relative;
     display: inline-block;
-    font-size: 30px;
-    margin: 0px;
-}
-
-
-header div{
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-}
-
-header div a{
-    color: white;
+    width: fit-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #d0d0d0;
     text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    position: relative;
-    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-header div a::after{
+.custom-navbar .nav-link::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -5px;
+    bottom: 4px;
     width: 0;
     height: 2px;
-    transition: width 0.3s ease;
     background-color: rgb(15, 207, 15);
+    transition: width 0.3s ease;
 }
 
-header div a:hover::after{
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+    color: white;
+}
+
+.custom-navbar .nav-link:hover::after,
+.custom-navbar .nav-link.active::after {
     width: 100%;
 }
+
+
+.custom-navbar .navbar-toggler {
+    border-color: white;
+}
+
+.custom-navbar .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+.navbar-nav {
+    gap: 25px;
+}
+
+.custom-navbar {
+    width: 100%;
+    height: auto;
+    background-color: #101214;
+    padding: 12px 20px;
+    box-sizing: border-box;
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .navbar-brand:hover,
+.custom-navbar .navbar-brand:focus {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
 
 .babyshower-maindiv main{
     min-height: 100vh;
@@ -183,4 +212,176 @@ footer p{
 
 .babyshower-subdiv span{
     color: red;
+}
+
+
+
+
+@media (max-width: 992px) {
+
+    .custom-navbar {
+        padding: 12px 16px;
+    }
+
+    .custom-navbar .navbar-nav {
+        gap: 18px;
+    }
+
+    .babyshower-maindiv main h1 {
+        font-size: 28px;
+        margin-top: 70px;
+        text-align: center;
+    }
+
+    .babyshower-para {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+
+    .babyshower-subdiv {
+        width: 65%;
+        padding: 35px 30px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .custom-navbar {
+        padding: 10px 15px;
+    }
+
+    .custom-navbar .navbar-nav {
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .custom-navbar .nav-link {
+        display: block;
+        padding: 10px 0;
+    }
+
+    .babyshower-maindiv main {
+        min-height: auto;
+        padding: 30px 0;
+    }
+
+    .babyshower-maindiv main h1 {
+        font-size: 25px;
+        margin-top: 35px;
+        padding: 0 15px;
+    }
+
+    .babyshower-para {
+        font-size: 15px;
+        margin: 15px 10px;
+        line-height: 1.6;
+    }
+
+    .babyshower-para::after {
+        width: 200px;
+        max-width: 80%;
+    }
+
+    .babyshower-subdiv {
+        width: 80%;
+        padding: 30px 25px;
+        margin-top: 20px;
+        margin-bottom: 35px;
+        box-sizing: border-box;
+    }
+
+    .babyshower-subdiv select,
+    .babyshower-subdiv button {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    footer {
+        min-height: 70px;
+        padding: 15px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    footer p {
+        font-size: 14px;
+        margin: 0;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .custom-navbar {
+        padding: 10px 12px;
+    }
+
+    .custom-navbar .navbar-brand {
+        font-size: 18px;
+    }
+
+    .babyshower-maindiv main h1 {
+        font-size: 22px;
+        margin-top: 25px;
+        line-height: 1.4;
+    }
+
+    .babyshower-para {
+        font-size: 14px;
+        margin: 12px 15px;
+    }
+
+    .babyshower-para::after {
+        width: 160px;
+        height: 3px;
+        margin-top: 10px;
+    }
+
+    .babyshower-subdiv {
+        width: 92%;
+        padding: 25px 18px;
+        border-radius: 12px;
+    }
+
+    .babyshower-subdiv label {
+        font-size: 14px;
+    }
+
+    .babyshower-subdiv select {
+        font-size: 13px;
+        padding: 11px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+    .babyshower-subdiv button {
+        font-size: 14px;
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    footer p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
+
+
+@media (max-width: 320px) {
+
+    .babyshower-maindiv main h1 {
+        font-size: 19px;
+    }
+
+    .babyshower-subdiv {
+        width: 95%;
+        padding: 20px 12px;
+    }
+
+    .babyshower-subdiv select,
+    .babyshower-subdiv button {
+        font-size: 12px;
+        padding: 10px;
+    }
 }

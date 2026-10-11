@@ -1,4 +1,4 @@
-.farewellretirementgift-maindiv{
+.anniversarygift-maindiv{
     min-height: 100vh;
     width: 100%;
     background-color: white;
@@ -63,7 +63,7 @@ header div a:hover::after{
     width: 100%;
 }
 
-.farewellretirementgift-content{
+.anniversarygift-content{
     margin-top: 63px;
     min-height: 100vh;
     min-width: 100%;
@@ -75,73 +75,73 @@ header div a:hover::after{
     align-items: center;
 }
 
-.farewellretirementgift-content span{
+.anniversarygift-content span{
     font-size: 14.5px;
     color: grey;
     line-height: 2.5;
 }
 
-.farewellretirementgift-content span a{
+.anniversarygift-content span a{
     color: rgb(83, 83, 83);
     text-decoration: none;
 }
 
-.farewellretirementgift-content span a:hover{
+.anniversarygift-content span a:hover{
     text-decoration: underline;
 }
 
-.farewellretirementgift-content h3{
+.anniversarygift-content h3{
     font-weight: 700;
 }
 
-.farewellretirementgift-content p{
+.anniversarygift-content p{
     color: rgba(18, 18, 18, 0.663);
 }
 
-.farewellretirementgift-subdiv{
+.anniversarygift-subdiv{
     display: flex;
     padding: 20px 0px;
      
 }
 
-.farewellretirementgift-subdiv2{
+.anniversarygift-subdiv2{
     margin-top: 30px;
     padding: 20px 20px;
 }
 
-.farewellretirementgift-subdiv2 h4{
+.anniversarygift-subdiv2 h4{
     font-weight: 700;
     font-size: 20px;
     margin-left: 11px;
 }
 
 
-.farewellretirementgift-subdiv2 li{
+.anniversarygift-subdiv2 li{
     color: rgba(18, 18, 18, 0.7);
     font-size: 14.5px;
     line-height: 1.7;
 }
 
-.farewellretirementgift-subdiv2 li::marker{
+.anniversarygift-subdiv2 li::marker{
     font-size: small;
 }
 
-.farewellretirementgift-subdiv3{
+.anniversarygift-subdiv3{
     margin-top: 30px;
 }
 
-.farewellretirementgift-subdiv3 h4{
+.anniversarygift-subdiv3 h4{
     font-weight: 700;
     font-size: 20px;
     margin-bottom: 15px;
 }
 
-.farewellretirementgift-subdiv3 section{
+.anniversarygift-subdiv3 section{
     display: flex;
     justify-content: space-between;
 }
 
-.farewellretirementgift-subdiv3 section div{
+.anniversarygift-subdiv3 section div{
     height: 80px;
     width: 300px;
     background-color: white;
@@ -154,32 +154,32 @@ header div a:hover::after{
     align-items: center;
 }
 
-.farewellretirementgift-subdiv3 section div p{
+.anniversarygift-subdiv3 section div p{
     margin: 0;
     line-height: 2;
     font-size: 14.5px;
 }
 
-.farewellretirementgift-subdiv3 section div p.bold{
+.anniversarygift-subdiv3 section div p.bold{
     font-weight: 700;
 }
 
-.farewellretirementgift-subdiv3 section div p.non-bold{
+.anniversarygift-subdiv3 section div p.non-bold{
     font-size:13px;
 }
 
-.farewellretirementgift-subdiv4{
+.anniversarygift-subdiv4{
     margin-top: 50px;
 }
 
-.farewellretirementgift-subdiv4 h4{
+.anniversarygift-subdiv4 h4{
     font-weight: 700;
     font-size: 20px;
     margin-bottom: 30px;
 
 }
 
-.farewellretirementgift-subdiv4 a{
+.anniversarygift-subdiv4 a{
     color: black;
     text-decoration: none;
     background-color: white;
@@ -189,7 +189,7 @@ header div a:hover::after{
     transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-.farewellretirementgift-subdiv4 a:hover{
+.anniversarygift-subdiv4 a:hover{
     color: white;
     background-color: rgba(0, 128, 0, 0.537);
 }
