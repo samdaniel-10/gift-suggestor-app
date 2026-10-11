@@ -145,3 +145,142 @@
     border-radius: 10px;
     
 }
+
+
+
+/* Tablet screens */
+@media screen and (max-width: 768px) {
+    .register-main1 {
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .register-sub1 {
+        width: 100%;
+        min-height: auto;
+        padding: 35px 25px;
+    }
+
+    .register-sub1 div {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .register-sub1 h1 {
+        font-size: 32px;
+    }
+
+    .register-p {
+        font-size: 16px;
+    }
+
+    .register-row {
+        font-size: 16px;
+    }
+
+    .register-sub2 {
+        width: 100%;
+        min-height: auto;
+        padding: 30px 20px;
+    }
+
+    .register-sub22 {
+        width: 85%;
+        max-width: 500px;
+        padding: 30px;
+        margin: 0;
+    }
+
+    .register-sub22 h1 {
+        font-size: 27px;
+    }
+
+    .register-sub22 input {
+        margin: 10px 0;
+    }
+
+    .register-sub22 .register-error {
+        margin: 10px 0;
+        overflow-wrap: anywhere;
+    }
+}
+
+/* Mobile screens */
+@media screen and (max-width: 480px) {
+    .register-main1 {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .register-sub1 {
+        width: 100%;
+        padding: 25px 20px;
+    }
+
+    .register-sub1 div {
+        width: 100%;
+    }
+
+    .register-sub1 h1 {
+        font-size: 27px;
+        text-align: center;
+    }
+
+    .register-p {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .register-row {
+        font-size: 15px;
+    }
+
+    .register-sub2 {
+        width: 100%;
+        padding: 25px 12px;
+    }
+
+    .register-sub22 {
+        width: 100%;
+        max-width: 400px;
+        padding: 25px 18px;
+        border-radius: 10px;
+    }
+
+    .register-sub22 h1 {
+        font-size: 24px;
+    }
+
+    .register-sub22 p {
+        font-size: 14px;
+    }
+
+    .register-sub22 input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px;
+        margin: 9px 0;
+        font-size: 16px;
+    }
+
+    .register-sub22 input::placeholder {
+        font-size: 14px;
+    }
+
+    .register-sub22 input.submit {
+        font-size: 16px;
+    }
+
+    .register-sub22 p.login {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .register-sub22 .register-error {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        overflow-wrap: anywhere;
+    }
+}
