@@ -4,7 +4,7 @@
     background-color: rgb(246, 245, 247);
 }
 
-/* header{
+header{
     box-sizing: border-box;
     color: white;
     background-color: black;
@@ -62,7 +62,7 @@ header div a::after{
 
 header div a:hover::after{
     width: 100%;
-} */
+}
 
 .homepage-main{
     min-height: 100vh;
@@ -426,55 +426,3 @@ footer p{
     }
 }
 
-
-
-.gift-navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 75px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    z-index: 1000;
-    margin-bottom: 0;
-}
-
- 
-
-.gift-navbar .nav-link {
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.gift-navbar .navbar-nav {
-    align-items: center;
-    gap: 20px; /* Adjust this value */
-}
-
-
-
-@media screen and (max-width: 991px) {
-    .gift-navbar .navbar-collapse {
-        padding-top: 12px;
-    }
-}
-
-
-/* Completely remove underline effects from the Gift Suggestor brand */
-.gift-navbar .navbar-brand,
-.gift-navbar .navbar-brand *,
-.gift-navbar .navbar-brand::before,
-.gift-navbar .navbar-brand::after {
-    text-decoration: none !important;
-    border-bottom: none !important;
-    background-image: none !important;
-    box-shadow: none !important;
-    content: none;
-}
-
-.gift-navbar .navbar-brand {
-    font-size: 30px;
-    font-weight: 700;
-    white-space: nowrap;
-}
