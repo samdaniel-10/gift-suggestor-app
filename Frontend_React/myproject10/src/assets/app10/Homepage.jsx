@@ -6,15 +6,58 @@ const Homepage = () => {
   return (
     <>
         <div className='homepage-maindiv'>
-            <header>
-                <h1>🎁 Gift Suggestor</h1>
-                <div>
-                    <Link to="/homepage">Home</Link>
-                    <Link to="#" onClick={(e) => e.preventDefault()}>About</Link>
-                    <Link to="#" onClick={(e) => e.preventDefault()}>Settings</Link>
-                    <Link to="#" onClick={(e) => e.preventDefault()}>My Profile</Link>
+            
+            <header className="navbar navbar-expand-lg navbar-dark bg-dark gift-navbar">
+                <div className="container-fluid px-4">
+
+                    <Link className="navbar-brand fw-bold" to="/homepage">
+                        🎁 Gift Suggestor
+                    </Link>
+
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#giftNavbar"
+                        aria-controls="giftNavbar"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div className="collapse navbar-collapse" id="giftNavbar">
+                        <ul className="navbar-nav ms-auto">
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/homepage">Home</Link>
+                            </li>
+
+                            <li className="nav-item">
+                                <a className="nav-link" href="#about"
+                                onClick={(e) => e.preventDefault()}>
+                                    About
+                                </a>
+                            </li>
+
+                            <li className="nav-item">
+                                <a className="nav-link" href="#settings"
+                                onClick={(e) => e.preventDefault()}>
+                                    Settings
+                                </a>
+                            </li>
+
+                            <li className="nav-item">
+                                <a className="nav-link" href="#profile"
+                                onClick={(e) => e.preventDefault()}>
+                                    My Profile
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
             </header>
+
             <main className='homepage-main'>
                 <h1 style={{marginBottom:"40px", marginTop:"100px", fontWeight:"bold"}}>Your Guide to Finding the Perfect Gift</h1>
                 <h1 className='homepage-occassions'>Occasions</h1>
