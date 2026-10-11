@@ -38,7 +38,7 @@ const Wedding = () => {
     return (
         <>
             <div className='wedding-maindiv'>
-                <nav className="navbar navbar-expand-md custom-navbar">
+                <nav className="navbar navbar-expand-md custom-navbar sticky-top">
                     <div className="container-fluid">
 
                         <a className="navbar-brand" href="#">Gift Suggestor 🎁</a>
