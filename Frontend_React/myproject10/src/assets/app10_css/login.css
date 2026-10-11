@@ -106,3 +106,67 @@
 form{
     width: 100%;
 }
+
+
+/* Tablet screens */
+@media screen and (max-width: 768px) {
+    .login-subdiv {
+        width: 60%;
+        padding: 30px 25px;
+    }
+
+    .login-subdiv h1 {
+        font-size: 27px;
+    }
+}
+
+/* Mobile screens */
+@media screen and (max-width: 480px) {
+    .login-maindiv {
+        min-height: 100vh;
+        height: auto;
+        padding: 20px 12px;
+    }
+
+    .login-subdiv {
+        width: 100%;
+        max-width: 400px;
+        padding: 25px 20px;
+        border-radius: 12px;
+    }
+
+    .login-subdiv h1 {
+        font-size: 24px;
+    }
+
+    .login-subdiv input {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .login-button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .login-subdiv2 {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .login-subdiv2 a {
+        font-size: 13px;
+    }
+
+    .login-subdiv p {
+        font-size: 14px;
+    }
+
+    .login-subdiv .login-error {
+        width: 100%;
+        margin: 10px 0;
+        overflow-wrap: anywhere;
+    }
+}
