@@ -318,28 +318,31 @@ footer p{
 /* Mobile screens */
 @media screen and (max-width: 480px) {
     header {
-        position: relative;
         height: auto;
-        padding: 15px;
+        min-height: 75px;
+        padding: 15px 20px;
         flex-direction: column;
+        justify-content: center;
         gap: 15px;
-        margin-bottom: 0;
     }
 
     header h1 {
-        font-size: 22px;
+        font-size: 24px;
         margin: 0;
     }
 
     header div {
+        width: 100%;
+        display: flex;
         justify-content: center;
         align-items: center;
-        gap: 15px;
+        gap: 20px;
         flex-wrap: wrap;
     }
 
     header div a {
-        font-size: 13px;
+        font-size: 14px;
+        white-space: nowrap;
     }
 
     .homepage-main {
