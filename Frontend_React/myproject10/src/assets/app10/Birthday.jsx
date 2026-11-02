@@ -29,7 +29,7 @@ const Birthday = () => {
     const birthday_handlesubmit = (event) => {
         event.preventDefault();
         getGiftSuggestions(
-            'https://gift-suggestor-backend.onrender.com/birthday_1/',
+            'https://sam1100.pythonanywhere.com/birthday_1/',
             birthdaydata,
             "/birthdaygift"
         );

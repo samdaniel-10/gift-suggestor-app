@@ -29,7 +29,7 @@ const Housewarming = () => {
     const housewarming_handlesubmit = (event) => {
         event.preventDefault();
         getGiftSuggestions(
-            'https://gift-suggestor-backend.onrender.com/housewarming_1/',
+            'https://sam1100.pythonanywhere.com/housewarming_1/',
             housewarmingdata,
             "/housewarminggift"
         );

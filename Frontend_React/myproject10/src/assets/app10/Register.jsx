@@ -36,7 +36,7 @@ const Register = () => {
             return;
         }
         
-        fetch("https://gift-suggestor-backend.onrender.com/register_1/",{
+        fetch("https://sam1100.pythonanywhere.com/register_1/",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

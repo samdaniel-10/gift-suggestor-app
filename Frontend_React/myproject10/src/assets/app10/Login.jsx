@@ -27,7 +27,7 @@ const Login = () => {
 
     const Login_handlesubmit= (event)=>{
         event.preventDefault();
-        fetch('https://gift-suggestor-backend.onrender.com/login_1/',{
+        fetch('https://sam1100.pythonanywhere.com/login_1/',{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

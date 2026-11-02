@@ -30,7 +30,7 @@ const FarewellRetirement = () => {
     const farewellretirement_handlesubmit = (event) => {
         event.preventDefault();
         getGiftSuggestions(
-            'https://gift-suggestor-backend.onrender.com/farewellretirement_1/',
+            'https://sam1100.pythonanywhere.com/farewellretirement_1/',
             farewellretirementdata,
             "/farewellretirementgift"
         );

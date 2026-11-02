@@ -28,7 +28,7 @@ const Babyshower = () => {
     const babyshower_handlesubmit = (event) => {
         event.preventDefault();
         getGiftSuggestions(
-            'https://gift-suggestor-backend.onrender.com/babyshower_1/',
+            'https://sam1100.pythonanywhere.com/babyshower_1/',
             babyshowerdata,
             "/babyshowergift"
         );

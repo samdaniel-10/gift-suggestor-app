@@ -28,7 +28,7 @@ const Anniversary = () => {
     const anniversary_handlesubmit = (event) => {
         event.preventDefault();
         getGiftSuggestions(
-            'https://gift-suggestor-backend.onrender.com/anniversary_1/',
+            'https://sam1100.pythonanywhere.com/anniversary_1/',
             anniversarydata,
             "/anniversarygift"
         );

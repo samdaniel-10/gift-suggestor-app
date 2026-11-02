@@ -29,7 +29,7 @@ const Wedding = () => {
     const wedding_handlesubmit = (event) => {
         event.preventDefault();
         getGiftSuggestions(
-            'https://gift-suggestor-backend.onrender.com/wedding_1/',
+            'https://sam1100.pythonanywhere.com/wedding_1/',
             weddingdata,
             "/weddinggift"
         );
